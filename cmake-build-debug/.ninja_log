@@ -1,0 +1,10 @@
+# ninja log v5
+19	228	6745196061963598	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Dijkstra.cpp.obj	fe75131843e95bf0
+994	1178	6745196071486813	Mini_Waslny.exe	8f4f188628abe364
+1	673	6745196066469625	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Edge.cpp.obj	974e69fc908acda0
+23	799	6745196067751486	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Source.cpp.obj	e9fa14288178a5dd
+27	825	6745196068020718	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Vertex.cpp.obj	f05c698bd0d3d7cb
+41	994	6745196069706652	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Graph.cpp.obj	4a3d5a6844c0f1f2
+25	578	6745324649180307	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Vertex.cpp.obj	f05c698bd0d3d7cb
+18	702	6745324650442081	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Graph.cpp.obj	4a3d5a6844c0f1f2
+21	1003	6745324653414140	CMakeFiles/Mini_Waslny.dir/Mini_Waslny/Dijkstra.cpp.obj	fe75131843e95bf0

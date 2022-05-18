@@ -1,0 +1,3 @@
+F:/Downloads/Mini Waslny/cmake-build-debug/CMakeFiles/Mini_Waslny.dir
+F:/Downloads/Mini Waslny/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/Downloads/Mini Waslny/cmake-build-debug/CMakeFiles/rebuild_cache.dir
