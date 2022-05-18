@@ -1,0 +1,18 @@
+﻿  Graph.cpp
+  Source.cpp
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(55,15): error C2039: 'updateVertex': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(63,15): error C2039: 'deleteVertex': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(75,15): error C2039: 'addEdge': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(87,15): error C2039: 'updateEdge': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(97,15): error C2039: 'deleteEdge': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(103,15): error C2039: 'printGraph': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Source.cpp(109,15): error C2039: 'saveGraph': is not a member of 'Graph'
+F:\Downloads\Mini Waslny\Mini Waslny\Graph.h(8): message : see declaration of 'Graph'
+  Vertex.cpp
+  Generating Code...
