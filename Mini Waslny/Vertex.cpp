@@ -1,5 +1,6 @@
 #include "Vertex.h"
-
+#include <fstream>
+#include <iostream>
 
 
 void Vertex::setTownName(string TN) {
@@ -43,7 +44,7 @@ void Vertex::DeleteEdge(string V) {
 
 }
 
-///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //Print Edge List function
 //void Vertex::printEdgeList() {
 //	cout << "[";

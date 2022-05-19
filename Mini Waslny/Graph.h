@@ -1,4 +1,4 @@
-
+#pragma once
 #include<vector>
 #include"Vertex.h"
 using namespace std;
@@ -7,9 +7,7 @@ using namespace std;
 
 class Graph
 {
-private:
 
-	list<Vertex> Vertices;
 public:
     Graph();
 
@@ -22,5 +20,6 @@ public:
 
 //	void printGraph();
 //	void saveGraph();
+    list<Vertex> Vertices;
 };
 

@@ -1,4 +1,5 @@
 #include "Dijkstra.h"
+#include <iostream>
 
 pair<list<string>, int> Dijkstra::dijkstra(string source, string destination, list<Vertex> Graph) {
     // o(v * e)
@@ -13,8 +14,15 @@ pair<list<string>, int> Dijkstra::dijkstra(string source, string destination, li
             q.push(vertex);
     }
     table[source] = {0, source};
+
     while (!q.empty()) {
-        list<pair<Vertex, int>> Edges = q.front().getEdgeList();
+        list<pair<Vertex, int>> Edges;
+        for (auto vertex: Graph) {
+            if (vertex.getTownName() == q.front().getTownName()) {
+                Edges = vertex.getEdgeList();
+
+            }
+        }
         for (auto &Edge: Edges) {
             int cost = table[q.front().getTownName()].first + Edge.second;
             //total cost of th current node + the cost to travel for the next node
@@ -24,6 +32,7 @@ pair<list<string>, int> Dijkstra::dijkstra(string source, string destination, li
                 q.push(Edge.first);
                 table[Edge.first.getTownName()] = {cost, q.front().getTownName()};
             }
+
         }
         q.pop();
     }
@@ -34,6 +43,9 @@ pair<list<string>, int> Dijkstra::dijkstra(string source, string destination, li
     while (parent != source) {
         parent = table[parent].second;
         path.push_back(parent);
+    }
+    for (auto it: table) {
+        cout << it.second.first << endl;
     }
     return {path, table[destination].first};
 
