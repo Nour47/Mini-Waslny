@@ -2,6 +2,7 @@
 
 #include<string>
 #include<list>
+#include<iterator>
 
 
 using namespace std;
@@ -9,21 +10,26 @@ using namespace std;
 class Vertex {
 private:
     string TownName;
-    list<pair<Vertex, int>> EdgeList;
 public:
-    Vertex(string TownName);
+    list<pair<Vertex, int>> EdgeList;
 
-    void addEdge(Vertex V, int cost);
+    explicit Vertex(string TownName);
 
-    void UpdateEdge(string V,int cost);
+    Vertex();
+
+    void addEdge(basic_string<char> V, int cost);
+
+    void UpdateEdge(string V, int cost);
 
     void DeleteEdge(string V);
+
+    void printEdgeList();
 
     void setTownName(string CN);
 
     string getTownName();
 
     list<pair<Vertex, int>> getEdgeList();
-//	void printEdgeList();
-//	void saveEdgeList();
+
+    void saveEdgeList(string, Vertex);
 };

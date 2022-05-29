@@ -1,37 +1,46 @@
 #pragma once
+
 #include<iostream>
 #include"Graph.h"
 #include "Dijkstra.h"
+#include<iterator>
+#include<string>
+#include<list>
+#include<fstream>
+
 using namespace std;
 
 
-int main()
-{
+int main() {
+    cout << "*Welcome to Mini-Waslny*" << endl;
     Graph g;
-    string s1,s2, sname;
-    int id1, id2, w;
-    int option, option1;
-    bool check = false;
+    string s1, s2, sname;
     Dijkstra d;
-    g.AddVertex("2");
+    int cost, option, type;
+    bool gtype = false;
+    list<string> f;
 
-    g.AddVertex("1");
-    g.AddVertex("3");
-    g.AddVertex("4");
 
-    g.AddEdge("1", "2", 10);
-    g.AddEdge("2", "3", 20);
-    g.AddEdge("3", "4", 10);
-    g.AddEdge("1", "4", 100);
-    cout << "1. directed graph" << endl;
-    cout << "2. undirected graph" << endl;
-    cin >> option1;
-    if (option1 == 1)
-    {
-        check = true;
+    while (true) {
+        cout << "=============================================" << endl;
+        cout << "1. Direct Graph " << endl;
+        cout << "2. Undirect Graph " << endl;
+        cin >> type;
+        if (type == 1 || type == 2) {
+            if (type == 1) {
+                gtype = true;
+            }
+            break;
+        } else {
+            cout << endl;
+            cout << "#Invalid input#" << endl;
+            continue;
+        }
+
     }
+
     do {
-        cout << "============================================="<<endl;
+        cout << "=============================================" << endl;
         cout << "What operation do you want to perform? " <<
              " Select Option number. Enter 0 to exit." << endl;
         cout << "1. Add Vertex" << endl;
@@ -42,10 +51,13 @@ int main()
         cout << "6. Delete Edge" << endl;
         cout << "7. Print Graph" << endl;
         cout << "8. store Graph" << endl;
-        cout << "9. dijkstra" << endl;
+        cout << "9. Measure The Shortest Path" << endl;
+        cout << "10. Load Graph" << endl;
         cout << "0. Exit Program" << endl;
 
         cin >> option;
+        cout << endl;
+        Vertex v1;
 
         switch (option) {
             case 0:
@@ -54,17 +66,31 @@ int main()
 
             case 1:
                 cout << "Add Vertex Operation -" << endl;
+                //cout << "Enter State ID :";
+                //cin >> id1;
                 cout << "Enter State Name :";
                 cin >> sname;
+                //v1.setTownID(id1);
+                //v1.setTownName(sname);
                 g.AddVertex(sname);
+
                 break;
 
+            case 2:
+                cout << "Update Vertex Operation -" << endl;
+                cout << "Enter State ID of Vertex(State) to update :";
+                // cin >> id1;
+                cout << "Enter State Name :";
+                cin >> sname;
+                //g.(id1, sname);
+
+                break;
 
             case 3:
                 cout << "Delete Vertex Operation -" << endl;
-                cout << "Enter name of Vertex(State) to Delete : ";
-                cin >> sname;
-                g.RemoveVertex(sname);
+                cout << "Enter ID of Vertex(State) to Delete : ";
+                cin >> s1;
+                g.RemoveVertex(s1);
 
                 break;
 
@@ -75,8 +101,8 @@ int main()
                 cout << "Enter ID of Destination Vertex(State): ";
                 cin >> s2;
                 cout << "Enter Weight of Edge: ";
-                cin >> w;
-                g.AddEdge(s2,s2,w);
+                cin >> cost;
+                g.AddEdge(s1, s2, cost, gtype);
 
                 break;
 
@@ -87,8 +113,8 @@ int main()
                 cout << "Enter ID of Destination Vertex(State): ";
                 cin >> s2;
                 cout << "Enter UPDATED Weight of Edge: ";
-                cin >> w;
-                g.UpdateEdge(s1,s2,w);
+                cin >> cost;
+                g.UpdateEdge(s1, s2, cost, gtype);
 
                 break;
 
@@ -98,37 +124,57 @@ int main()
                 cin >> s1;
                 cout << "Enter ID of Destination Vertex(State): ";
                 cin >> s2;
-                g.RemoveEdge(s1, s2);
+                g.RemoveEdge(s1, s2, gtype);
 
                 break;
 
             case 7:
                 cout << "Print Graph Operation -" << endl;
-                //g.printGraph();
+                g.printGraph();
 
                 break;
 
-            case 8:
+            case 8: {
+                string fname;
                 cout << "store Graph Operation -" << endl;
-                //g.saveGraph();
+                cout << "Enter Graph's name   (example: #20) -" << endl;
+                cin >> fname;
+                g.saveGraph(fname);
+                g.addtotextfile(fname);
 
                 break;
-
+            }
             case 9: {
                 cout << "dijkstra -" << endl;
                 cout << "enter source:";
-                cin >> s1; cout << endl;
+                cin >> s1;
+                cout << endl;
                 cout << "enter destinstion:";
-                cin >> s2; cout << endl;
+                cin >> s2;
+                cout << endl;
 
-                pair <list<string>, int> lst = d.dijkstra(s1, s2, g.Vertices);
-                for (auto it = lst.first.begin(); it != lst.first.end(); it++)
-                {
-                    cout << *it << "-->";
+                pair<list<string>, int> lst = d.dijkstra(s1, s2, g.Vertices);
+                for (auto it = lst.first.begin(); it != lst.first.end(); it++) {
+                    cout << "(" << (*it) << ") --> ";
+                }
+                cout << "*arrived*" << endl;
+                cout << "Total Distance covered: " << lst.second << endl;
+
+
+                break;
+            }
+
+            case 10: {
+                string fname;
+                cout << "Load Graph Operation -" << endl;
+                cout << "Enter Graph's ID   (example: #20) -" << endl;
+                f = g.readFiles();
+                for (auto it = f.begin(); it != f.end(); it++) {
+                    cout << *it << " - ";
                 }
                 cout << endl;
-                cout << lst.second << endl;
-                //g.saveGraph();
+                cin >> fname;
+                g.loadGraph(gtype, fname);
 
                 break;
             }
@@ -138,6 +184,7 @@ int main()
         cout << endl;
 
     } while (option != 0);
+
 
     return 0;
 }
